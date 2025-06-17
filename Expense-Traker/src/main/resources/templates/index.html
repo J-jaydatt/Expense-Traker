@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expense Tracker</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/index.css">
+
+</head>
+<body>
+
+<div class="container text-center mt-5">
+  <h1>Welcome to Expense Tracker</h1>
+  <p>Manage your expenses effortlessly</p>
+  <div class="mt-4">
+    <a th:href="@{/login}" class="btn btn-primary me-2">Login</a>
+    <a th:href="@{/register}" class="btn btn-success">Sign Up</a>
+  </div>
+</div>
+
+<!-- Feature Cards -->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="images/Concept of Financial Growth and Investment stock photography.jpeg"
+             class="card-img-top" alt="Expense Tracking">
+        <div class="card-body">
+          <h5 class="card-title">Track Your Expenses</h5>
+          <p class="card-text">Easily log and categorize your daily expenses to gain insights into your
+            spending habits.</p>
+          <p class="card-text"><small class="text-muted">Updated just now</small></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="images/data analysis.jpeg" class="card-img-top" alt="Budgeting">
+        <div class="card-body">
+          <h5 class="card-title">Set Monthly Budgets</h5>
+          <p class="card-text">Stay on top of your finances by setting budgets and receiving alerts when
+            you exceed limits.</p>
+          <p class="card-text"><small class="text-muted">Updated just now</small></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="images/How to Grow Your Wealth in 3 Stages, and Maximize Your Money During Each Step — GOBankingRates.jpeg"
+             class="card-img-top" alt="Reports">
+        <div class="card-body">
+          <h5 class="card-title">Generate Financial Reports</h5>
+          <p class="card-text">View detailed analytics and reports to understand your financial trends and
+            plan ahead.</p>
+          <p class="card-text"><small class="text-muted">Updated just now</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer class="bg-dark text-white text-center py-3 "
+        style="height: 10vh; margin-top: 8% ; width: 98%; margin-left: 1%; border-radius: 10px;">
+  <div class="container" id="footer">
+    <p id="cond" >&copy; 2025 Expense Tracker. All rights reserved.</p>
+    <p id="link">
+      <a href="#" class="text-white me-3">About</a>
+      <a href="#" class="text-white me-3">Contact</a>
+      <a href="#" class="text-white">Privacy Policy</a>
+    </p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Budget Planner</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .card {
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .form-control {
+      border-radius: 12px;
+    }
+    .btn-primary {
+      border-radius: 12px;
+    }
+    #result {
+      font-weight: bold;
+      color: #0d6efd;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="card w-100" style="max-width: 500px;">
+  <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+  <h3 class="text-center mb-4">💰 Budget Planner</h3>
+  <form id="budgetForm" th:action="@{/addBudget}" method="post">
+
+    <div class="mb-3">
+      <label for="budget" class="form-label">Total Budget (₹)</label>
+      <input type="number" name="totalBudget" class="form-control"  id="budget"  required>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">
+           Add new
+    </button>
+  </form>
+    <small th:if="${old}" th:text="${old}"></small>
+<!--    <small th:if="${new}" th:text="${new}"></small>-->
+
+  <div id="result" class="text-center"></div>
+</div>
+
+
+
+</body>
+</html>

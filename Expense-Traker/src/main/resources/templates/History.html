@@ -1,0 +1,100 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Expenses</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f0f2f5;
+        }
+        table{
+        text-align:center;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #343a40;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Product Expenses</h2>
+
+    <!-- Button Group -->
+    <div class="btn-group">
+        <a class="btn btn-primary" th:href="@{/home}">🏠 Home</a>
+        <button class="btn btn-success" onclick="downloadCSV()">⬇️ Download</button>
+    </div>
+
+    <!-- Table -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover" id="expenseTable">
+            <thead class="table-dark">
+            <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Price (₹)</th>
+                <th>Type</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:if="${productList.isEmpty()}">
+                <td colspan="4" class="text-center text-danger">No products found for this user.</td>
+            </tr>
+            <tr th:each="product : ${productList}">
+                <td th:text="${product.date}"></td>
+                <td th:text="${product.name}"></td>
+                <td th:text="${product.price}"></td>
+                <td th:text="${product.type}">Food</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Download as CSV Script -->
+<script>
+    function downloadCSV() {
+        const table = document.getElementById("expenseTable");
+        let csv = [];
+        for (let row of table.rows) {
+            let rowData = [];
+            for (let cell of row.cells) {
+                rowData.push('"' + cell.innerText + '"');
+            }
+            csv.push(rowData.join(","));
+        }
+
+        const csvContent = csv.join("\n");
+        const blob = new Blob([csvContent], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.setAttribute("href", url);
+        a.setAttribute("download", "product_expenses.csv");
+        a.click();
+    }
+</script>
+</body>
+</html>

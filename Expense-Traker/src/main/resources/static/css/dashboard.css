@@ -1,0 +1,73 @@
+body {
+  background-color: #eef5ff; /* Light gray from Bootstrap's palette */
+}
+#plus{
+background:none;
+border:none;
+}
+@keyframes blinkOnce {
+    0% { border: 2px solid red; }
+    50% { border: 2px solid transparent; }
+    100% { border: 2px solid red; }
+  }
+
+  .blink-border {
+    animation: blinkOnce 1s ease-in-out 1;
+    border: 2px solid red !important;
+  }
+
+  .alert-danger {
+    transition: opacity 0.5s ease;
+  }
+    .card-title {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    .amount {
+      font-size: 1.2rem;
+    }
+    .category-card {
+      position: relative;
+      width: 245px;
+      height: 300px;
+      flex: 0 0 auto;
+      border-radius: 0px 0px 10px 10px;
+    }
+    .category-card img {
+      height: 130px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .category-card .card-body {
+      padding: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+       border-radius: 0px 10px 0px 10px;
+    }
+    .add-icon {
+      font-size: 1.8rem;
+      color: #0d6efd;
+      margin-top: 0.5rem;
+      cursor: pointer;
+    }
+    .navbar .settings-icon {
+      font-size: 1.2rem;
+      margin-right: 15px;
+      color: #333;
+      cursor: pointer;
+    }
+    .horizontal-scroll {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+    }
+    .horizontal-scroll::-webkit-scrollbar {
+      height: 8px;
+    }
+    .horizontal-scroll::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 4px;
+    }
